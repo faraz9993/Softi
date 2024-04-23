@@ -26,3 +26,12 @@ jobs:
           npm i
           npm run build
           ls -lh && pwd
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-feature-${{ hashFiles('package-lock.json') }}
+            npm-feature-
+            npm-
