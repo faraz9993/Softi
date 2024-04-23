@@ -51,8 +51,3 @@ jobs:
               fi
           done
           echo "Done"
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          echo "Remaining caches after cleanup:"
-          gh actions-cache list -R $REPO -B $BRANCH -L 100
