@@ -22,8 +22,7 @@ jobs:
           cache: 'npm'
       - name: run the code
         run: |
-          # Add your commands here
           echo "Running the code..."
-          # Example commands:
-          npm init -y
-          npm start
+          npm i
+          npm run build
+          ls -lh && pwd
