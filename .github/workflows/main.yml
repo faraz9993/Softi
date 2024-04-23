@@ -25,5 +25,5 @@ jobs:
           # Add your commands here
           echo "Running the code..."
           # Example commands:
-          npm init
+          npm init -y
           npm start
