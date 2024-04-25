@@ -39,15 +39,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Cleanup step"
-          gh extension install actions/gh-actions-cache
-          # Extract the last two cache keys
-          lastTwoCacheKeys=$(echo "$cacheKeysForPR" | tail -n 2)
-          echo "Deleting caches except the last two..."
+          echo "Deleting caches..."
           for cacheKey in $cacheKeysForPR
           do
-              if [[ ! "$lastTwoCacheKeys" =~ "$cacheKey" ]]; then
-                  gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
-              fi
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
           done
           echo "Done"
