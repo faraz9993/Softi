@@ -37,7 +37,7 @@ jobs:
             npm-
       - name: Cleanup
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ git_token }}
         run: |
           echo "Cleanup step"
           gh extension install actions/gh-actions-cache
